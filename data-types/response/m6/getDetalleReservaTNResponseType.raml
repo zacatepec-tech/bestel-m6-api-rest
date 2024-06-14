@@ -1,0 +1,29 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  buscarDetalleReservacionResponse:
+    type: object
+    properties:
+     telephone:
+        type: array
+        items:
+          type: object
+          properties:
+            telNumRequestID:
+              type: string
+              example: "1061"
+            identText:
+              type: string
+              example: "8006590000"
+            formattedIdentText:
+              type: string
+              example: "800 6590001"
+            identTextSuffix:
+              type: string
+              example: "0"
+            niStatusAlphaCD:
+              type: string
+              example: "Reserved"
+            niStatusDescr:
+              type: string
+              example: "Reserved"

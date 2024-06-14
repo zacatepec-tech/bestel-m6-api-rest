@@ -1,0 +1,22 @@
+{
+  "buscarOperatingCompanyResponse": {
+    "company": [
+      {
+        "operatingCompanyNumber": "0001",
+        "operatingCompanyName": "BESTEL"
+      },
+      {
+        "operatingCompanyNumber": "0002",
+        "operatingCompanyName": "METRORED"
+      },
+      {
+        "operatingCompanyNumber": "0004",
+        "operatingCompanyName": "QUANTUM LINK"
+      },
+      {
+        "operatingCompanyNumber": "0003",
+        "operatingCompanyName": "TELUM"
+      }
+    ]
+  }
+}

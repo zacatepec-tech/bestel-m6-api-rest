@@ -12,146 +12,184 @@ documentation:
     content: "API Rest de los servicios M6"
     title: Home
 types:
-  getInventarioEquipoResponse: !include data-types/response/m6/getInventarioEquipoResponse.raml
-  getDetalleNetworkLocationResponse: !include data-types/response/m6/getDetalleNetworkLocationResponse.raml
-  anillosPorNetworkLocationResponse: !include data-types/response/m6/getAnillosPorNetworkLocationResponse.raml
-  anillosListaReponse: !include data-types/response/m6/getAnillosListaReponse.raml
-  parametrosGeneralesDeAnilloResponse: !include data-types/response/m6/getParametrosGeneralesDeAnilloResponse.raml
-  networkLocationsResponse: !include data-types/response/m6/getNetworkLocationsResponse.raml
-  conteoEquiposPorAnilloResponse: !include data-types/response/m6/getConteoEquiposPorAnilloResponse.raml
-  disponibilidadPuertosPorAnilloResponse: !include data-types/response/m6/getDisponibilidadPuertosPorAnilloResponse.raml
+  getSeries800ResponseType: !include data-types/response/m6/getSeries800ResponseType.raml
+  getNir800ResponseType: !include data-types/response/m6/getNir800ResponseType.raml
+  getPortedTelephoneNumbersResponseType: !include  data-types/response/m6/getPortedTelephoneNumbersResponseType.raml
+  getDetalleReservaTNResponseType:  !include  data-types/response/m6/getDetalleReservaTNResponseType.raml
+  getGAInstanceResponseType: !include  data-types/response/m6/getGAInstanceResponseType.raml
+  completarDueDateRequestResponseType: !include data-types/response/m6/completarDueDateRequestResponseType.raml
+  getTelephoneNumberRequestType: !include data-types/request/getTelephoneNumberRequest.raml
+  getTelephoneNumberResponseType: !include  data-types/response/m6/getTelephoneNumberResponseType.raml
+  getOperatingCompaniesResponseType: !include  data-types/response/m6/getOperatingCompaniesResponseType.raml
+####### SOAP to REST
 
-/m6/getParametrosGeneralesDeAnillo:
-  displayName: GetParametrosGeneralesDeAnillo
+/m6/getRangosBusqueda:
+  displayName: completarDueDateRequest
   description: |
-    Este endpoint devuelve los parámetros generales de un anillo.
+    Completa una orden de M6 a peticion de Salesforce.
   get:
-    description: GET - parametrosGeneralesDeAnillo
+    description: getRangosBusqueda
     queryParameters:
-      ns_nm:
-        type: string
-        required: false
-        default: "null"
+      numeroPSR:
+        type: integer
+        required: true
+        example: 3602
+      billActivationDate:
+        type: number
+        required: true
+        example: 20220710000000
     responses:
       200:
         body:
           application/json:
-            type: parametrosGeneralesDeAnilloResponse
-            example: !include responses/m6/getParametrosGeneralesDeAnilloResponse.json
+            type: completarDueDateRequestResponseType
+            example: !include responses/m6/completarDueDateRequestResponse.json
 
-/m6/getNetworkLocations:
-  displayName: GetNetworkLocations
-  description: |
-    Este endpoint devuelve las ubicaciones de red.
-  get:
-    description: GET - networkLocations
-    responses:
-      200:
-        body:
-          application/json:
-            type: networkLocationsResponse
-            example: !include responses/m6/getNetworkLocationsResponse.json
 
-/m6/getConteoEquiposPorAnillo:
-  displayName: GetConteoEquiposPorAnillo
+/m6/getGAInstance:
+  displayName: getGAInstance
   description: |
-    Este endpoint devuelve el conteo de equipos por anillo.
+    Esta operacion devuelve la lista de las areas geograficas (pais, estado , municipio/delegacion y ciudad), es un llamado recursivo.
   get:
-    description: GET - conteoEquiposPorAnillo
+    description: getGAInstance
     queryParameters:
-      ns_nm:
-        type: string
-        required: false
-        default: "null"
+      gaInstanceID:
+        type: integer
+        required: true
+        example: 34
     responses:
       200:
         body:
           application/json:
-            type: conteoEquiposPorAnilloResponse
-            example: !include responses/m6/getConteoEquiposPorAnilloResponse.json
+            type: getGAInstanceResponseType
+            example: !include responses/m6/getGAInstanceResponse.json
 
-/m6/getDisponibilidadPuertosPorAnillo:
-  displayName: GetDisponibilidadPuertosPorAnillo
+/m6/getTelephoneNumber:
+  displayName: getTelephoneNumber
   description: |
-    Este endpoint devuelve la disponibilidad de puertos por anillo.
+    Esta operacion devuelve la lista de las areas geograficas (pais, estado , municipio/delegacion y ciudad), es un llamado recursivo.
+  post:
+    description: getTelephoneNumber
+    body:
+      application/json:
+        type: getTelephoneNumberRequestType
+        example: !include request/getTelephoneNumberRequest.json
+    responses:
+      200:
+        body:
+          application/json:
+            type: getTelephoneNumberResponseType
+            example: !include responses/m6/getTelephoneNumberResponse.json
+
+
+
+/m6/getOperatingCompanies:
+  displayName: getOperatingCompanies
+  description: |
+    Esta operacion permite devolver la lista de las compañias donadoras en el proceso de portabilidad.
   get:
-    description: GET - disponibilidadPuertosPorAnillo
+    description: getOperatingCompanies
+    responses:
+      200:
+        body:
+          application/json:
+            type: getOperatingCompaniesResponseType
+            example: !include responses/m6/getOperatingCompaniesResponse.json
+
+
+
+
+/m6/getDetalleReservaTN:
+  displayName: getDetalleReservaTN
+  description: |
+    Esta operacion permite buscar la numeracion asociada a una reserva determinada.
+  get:
+    description: getDetalleReservaTN
     queryParameters:
-      ns_nm:
-        type: string
-        required: false
-        default: "null"
+      idReserva:
+        type: integer
+        required: true
+        example: 1061
     responses:
       200:
         body:
           application/json:
-            type: disponibilidadPuertosPorAnilloResponse
-            example: !include responses/m6/getDisponibilidadPuertosPorAnilloResponse.json
+            type: getDetalleReservaTNResponseType
+            example: !include responses/m6/getDetalleReservaTNResponse.json
 
-
-/m6/getAnillosLista:
-  displayName: GetAnillosLista
+/m6/getPortedTelephoneNumbers:
+  displayName: getPortedTelephoneNumbers
   description: |
-    Este endpoint devuelve un listado de anillos disponibles.
+    Esta operacion permite buscar toda la numeracion portada asociada a un servicio especifico.
   get:
-    description: GET - Listado de anillos disponibles
-    responses:
-      200:
-        body:
-          application/json:
-            type: anillosListaReponse
-            example: !include responses/m6/getAnillosListaResponse.json
-
-/m6/getAnillosPorNetworkLocation:
-  displayName: getAnillosPorNetworkLocation
-  description: |
-    Este endpoint devuelve listado de anillos por locacion de red.
-  get:
-    description: GET - Listado de anillos por locacion de red
+    description: getPortedTelephoneNumbers
     queryParameters:
-      clli_code:
-        type: string
-        required: false
-        default: "null"
+      idPortabilidad:
+        type: number
+        required: true
+        example: 102201110311634180001
+      organizacionResponsable:
+        type: integer
+        required: true
+        example: 1
     responses:
       200:
         body:
           application/json:
-            type: anillosPorNetworkLocationResponse
-            example: !include responses/m6/getAnillosPorNetworkLocationResponse.json
+            type: getPortedTelephoneNumbersResponseType
+            example: !include responses/m6/getPortedTelephoneNumbersResponse.json
 
-/m6/getDetalleNetworkLocation:
-  displayName: getDetalleNetworkLocation
-  description: |
-    Este endpoint devuelve el detalle de una locacion de red.
-  get:
-    description: GET - Detalle de una locacion de red
-    queryParameters:
-      arg_code:
-        type: string
-        required: false
-        default: "null"
-    responses:
-      200:
-        body:
-          application/json:
-            type: getDetalleNetworkLocationResponse
-            example: !include responses/m6/getDetalleNetworkLocationResponse.json
+### getNir800
 
-/m6/getInventarioEquipo:
-  displayName: getInventarioEquipo
+/m6/getNir800:
+  displayName: getNir800
   description: |
-    Este endpoint devuelve informacion del inventario del equipo disponible.
+    Operacion de busqueda, permite realizar la busqueda de los numeros 800's y del numero local al cual se asocia dicho 800.
   get:
-    description: GET - Devuelve informacion del inventario del equipo disponible
-    queryParameters:
-      equipment_id:
-        type: string
-        required: false
-        default: "null"
+    description: getNir800
     responses:
       200:
         body:
           application/json:
-            type: getInventarioEquipoResponse
-            example: !include responses/m6/getInventarioEquipoResponse.json
+            type: getNir800ResponseType
+            example: !include responses/m6/getNir800Response.json
+
+### getSeries800
+/m6/getSeries800:
+  displayName: getSeries800
+  description: |
+    Operacion de busqueda, permite realizar la busqueda de los numeros 800's y del numero local al cual se asocia dicho 800.
+  get:
+    description: getSeries800
+    queryParameters:
+      nir800:
+        type: number
+        required: true
+        example: 800
+    responses:
+      200:
+        body:
+          application/json:
+            type: getSeries800ResponseType
+            example: !include responses/m6/getSeries800Response.json
+
+### completarDueDateRequest FLARA PROPORCIONAR RESPONSE 
+/m6/completarDueDateRequest:
+  displayName: completarDueDateRequest
+  description: |
+    Operacion que completa una orden en m6 a peticion de salesforce.
+  get:
+    description: completarDueDateRequest
+    queryParameters:
+      numeroPSR:
+        type: number
+        required: true
+        example: 3602
+      billActivationDate:
+        type: number
+        required: true
+        example: 20220710000000
+    responses:
+      200:
+        body:
+          application/json:

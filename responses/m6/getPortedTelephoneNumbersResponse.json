@@ -1,0 +1,18 @@
+{
+  "buscarPortedTelephoneNumbersResponse": {
+    "portedTelephoneNumber": {
+      "acctNbr": "2147483647",
+      "companyName": "CABLEMAS TELECOMUNICACIONES CABM",
+      "idProduct": "4070",
+      "aliasProduct": "DID",
+      "itemID": "4071",
+      "itemAlias": "DID",
+      "inventoryID": "7760119",
+      "tnLine": "5559244709",
+      "telNbrTypeCode": "FORWTN",
+      "label": "ID Portabilidad",
+      "valueLabel": "102201110311634180001",
+      "ocn": "BESTEL"
+    }
+  }
+}

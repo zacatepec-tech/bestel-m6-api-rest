@@ -1,0 +1,46 @@
+{
+  "buscarTelephoneNumberResponse": {
+    "checkPointID": 0,
+    "telephoneNumberArray": [
+      {
+        "nbrInvID": 26774,
+        "nir": 775,
+        "serie": 233,
+        "linea": 8700,
+        "sufix": 0,
+        "identText": "7752338700",
+        "formattedIdentText": "775 2338700-0",
+        "telNbrTypeCD": "WTN",
+        "tniCategoryDesc": "Assignable Numbers",
+        "tniSubcategoryDesc": "Metrored",
+        "sfStrucFormatNm": "TN-MX BESTEL"
+      },
+      {
+        "nbrInvID": 26775,
+        "nir": 775,
+        "serie": 233,
+        "linea": 8701,
+        "sufix": 0,
+        "identText": "7752338701",
+        "formattedIdentText": "775 2338701-0",
+        "telNbrTypeCD": "WTN",
+        "tniCategoryDesc": "Assignable Numbers",
+        "tniSubcategoryDesc": "Metrored",
+        "sfStrucFormatNm": "TN-MX BESTEL"
+      },
+      {
+        "nbrInvID": 26776,
+        "nir": 775,
+        "serie": 233,
+        "linea": 8702,
+        "sufix": 0,
+        "identText": "7752338702",
+        "formattedIdentText": "775 2338702-0",
+        "telNbrTypeCD": "WTN",
+        "tniCategoryDesc": "Assignable Numbers",
+        "tniSubcategoryDesc": "Metrored",
+        "sfStrucFormatNm": "TN-MX BESTEL"
+      }
+    ]
+  }
+}

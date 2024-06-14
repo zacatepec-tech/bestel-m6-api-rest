@@ -1,0 +1,18 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  buscarGAInstanceByIdResponseArray:
+    type: object
+    properties:
+      gaInstance:
+        type: array
+        items:
+          type: object
+          properties:
+            gaInstanceID:
+              type: integer
+              example: 1012
+            instanceValue:
+              type: string
+              example: "BAJA CALIFORNIA"

@@ -1,0 +1,15 @@
+{
+  "buscarSeries800Response": {
+    "serie800": [
+      {
+        "serie": "001"
+      },
+      {
+        "serie": "163"
+      },
+      {
+        "serie": "168"
+      }
+    ]
+  }
+}
