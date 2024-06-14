@@ -1,0 +1,47 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  buscarTelephoneNumberResponse:
+    type: object
+    properties:
+      checkPointID:
+        type: number
+        example: 0
+      telephoneNumberArray:
+        type: array
+        items:
+          type: object
+          properties:
+            nbrInvID:
+              type: number
+              example: 26774
+            nir:
+              type: number
+              example: 775
+            serie:
+              type: number
+              example: 233
+            linea:
+              type: number
+              example: 8700
+            sufix:
+              type: number
+              example: 0
+            identText:
+              type: string
+              example: "7752338700"
+            formattedIdentText:
+              type: string
+              example: "775 2338700-0"
+            telNbrTypeCD:
+              type: string
+              example: "WTN"
+            tniCategoryDesc:
+              type: string
+              example: "Assignable Numbers"
+            tniSubcategoryDesc:
+              type: string
+              example: "Metrored"
+            sfStrucFormatNm:
+              type: string
+              example: "TN-MX BESTEL"

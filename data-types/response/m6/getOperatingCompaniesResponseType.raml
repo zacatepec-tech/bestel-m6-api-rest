@@ -1,0 +1,17 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  buscarOperatingCompanyResponse:
+    type: object
+    properties:
+     company:
+        type: array
+        items:
+          type: object
+          properties:
+            operatingCompanyNumber:
+              type: string
+              example: "0001"
+            operatingCompanyName:
+              type: string
+              example: "BESTEL"

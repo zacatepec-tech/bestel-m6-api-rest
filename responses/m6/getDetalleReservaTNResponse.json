@@ -1,0 +1,38 @@
+{
+  "buscarDetalleReservacionResponse": {
+    "telephone": [
+      {
+        "telNumRequestID": "1061",
+        "identText": "8006590000",
+        "formattedIdentText": "800 6590000",
+        "identTextSuffix": "0",
+        "niStatusAlphaCD": "Reserved",
+        "niStatusDescr": "Reserved"
+      },
+      {
+        "telNumRequestID": "1061",
+        "identText": "8006590001",
+        "formattedIdentText": "800 6590001",
+        "identTextSuffix": "0",
+        "niStatusAlphaCD": "Reserved",
+        "niStatusDescr": "Reserved"
+      },
+      {
+        "telNumRequestID": "1061",
+        "identText": "8006590002",
+        "formattedIdentText": "800 6590002",
+        "identTextSuffix": "0",
+        "niStatusAlphaCD": "Reserved",
+        "niStatusDescr": "Reserved"
+      },
+      {
+        "telNumRequestID": "1061",
+        "identText": "8006590003",
+        "formattedIdentText": "800 6590003",
+        "identTextSuffix": "0",
+        "niStatusAlphaCD": "Reserved",
+        "niStatusDescr": "Reserved"
+      }
+    ]
+  }
+}
